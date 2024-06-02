@@ -29,15 +29,15 @@ fun Genre.GenreType.getAssociatedImageResource(): Int = when (this) {
  * spotify web app.
  */
 fun Genre.GenreType.getAssociatedBackgroundColor() = when (this) {
-    Genre.GenreType.AMBIENT -> Color(0, 48, 72)
-    Genre.GenreType.CHILL -> Color(71, 126, 149)
-    Genre.GenreType.CLASSICAL -> Color(141, 103, 171)
-    Genre.GenreType.DANCE -> Color(140, 25, 50)
-    Genre.GenreType.ELECTRONIC -> Color(186, 93, 7)
-    Genre.GenreType.METAL -> Color(119, 119, 119)
-    Genre.GenreType.RAINY_DAY -> Color(144, 168, 192)
-    Genre.GenreType.ROCK -> Color(230, 30, 50)
-    Genre.GenreType.PIANO -> Color(71, 125, 149)
-    Genre.GenreType.POP -> Color(141, 103, 171)
-    Genre.GenreType.SLEEP -> Color(30, 50, 100)
+    Genre.GenreType.AMBIENT -> Color(0xFFA3006B)
+    Genre.GenreType.CHILL -> Color(0xFF14452F)
+    Genre.GenreType.CLASSICAL -> Color(0xFF4B006E)
+    Genre.GenreType.DANCE -> Color(0xFF0041C2)
+    Genre.GenreType.ELECTRONIC -> Color.LightGray
+    Genre.GenreType.METAL -> Color(0xFFA3006B)
+    Genre.GenreType.RAINY_DAY -> Color(0xFF964B00)
+    Genre.GenreType.ROCK -> Color.Magenta
+    Genre.GenreType.PIANO -> Color.Red
+    Genre.GenreType.POP -> Color.Blue
+    Genre.GenreType.SLEEP -> Color.Cyan
 }

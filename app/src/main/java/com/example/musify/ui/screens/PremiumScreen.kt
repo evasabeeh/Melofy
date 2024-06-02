@@ -42,7 +42,7 @@ fun GetPremiumScreen(
         }
         item {
             Text(
-                text = "Pick your Premium",
+                text = "Available plans",
                 fontWeight = FontWeight.Bold,
                 style = MaterialTheme.typography.h6
             )
@@ -66,7 +66,7 @@ private fun PlanInformationCard(
     onViewPlansButtonClick: () -> Unit
 ) {
     val planHighlights = remember(card) {
-        card.highlights.joinToString(separator = " • ")
+        card.highlights.joinToString(separator = "\n• ")
     }
     val gradientBrush = remember(card) {
         // Offset values
@@ -113,7 +113,7 @@ private fun PlanInformationCard(
             Button(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
                 shape = RoundedCornerShape(50),
-                colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
+                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Green),
                 onClick = onViewPlansButtonClick
             ) {
                 Text(
@@ -121,7 +121,7 @@ private fun PlanInformationCard(
                         vertical = 8.dp,
                         horizontal = 24.dp
                     ),
-                    text = "VIEW PLANS",
+                    text = "One-time payment",
                     fontWeight = FontWeight.Bold,
                     color = Color.Black,
                     style = MaterialTheme.typography.subtitle1

@@ -1,5 +1,6 @@
 package com.example.musify.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -7,11 +8,13 @@ import androidx.compose.material.icons.filled.Share
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.musify.R
 import com.example.musify.domain.Streamable
 import com.example.musify.ui.components.AsyncImageWithPlaceholder
@@ -163,6 +166,42 @@ private fun Footer(
         IconButton(onClick = onShareButtonClicked,
             content = { Icon(imageVector = Icons.Filled.Share, contentDescription = null) })
     }
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.Center
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            Text(
+                text = "Lyrics",
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(vertical = 16.dp)
+            )
+            Text(
+                text = "I know that dress is karma, perfume regret",
+                color = Color.DarkGray
+            )
+            Text(
+                text = "You got me thinking 'bout when you were mine, oh",
+                color = Color.DarkGray
+            )
+            Text(
+                text = "And now I'm all up on ya, what you expect?"
+            )
+            Text(
+                text = "But you're not coming home with me tonight",
+                color = Color.DarkGray
+            )
+            Text(
+                text = "\n\nYou just want attention",
+                color = Color.DarkGray
+            )
+        }
+    }
 }
 
 @Composable
@@ -183,7 +222,7 @@ private fun PlaybackControls(
     ) {
         IconButton(onClick = onShuffleButtonClicked) {
             Icon(
-                painter = painterResource(R.drawable.ic_round_shuffle_24), contentDescription = null
+                painter = painterResource(R.drawable.ic_headphone), contentDescription = null
             )
         }
         IconButton(onClick = onSkipPreviousButtonClicked) {
@@ -210,7 +249,7 @@ private fun PlaybackControls(
         }
         IconButton(onClick = onRepeatButtonClicked) {
             Icon(
-                painter = painterResource(R.drawable.ic_round_repeat_24), contentDescription = null
+                painter = painterResource(R.drawable.ic_speed), contentDescription = null
             )
         }
     }

@@ -14,6 +14,9 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.Settings
+import androidx.compose.material.icons.rounded.AccountCircle
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -25,6 +28,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -100,6 +104,7 @@ fun SearchScreen(
     val searchBarBackgroundAlpha by remember(isSearchListVisible) {
         mutableStateOf(if (isSearchListVisible) 0.8f else 1f)
     }
+
     val searchBarAlpha by animateFloatAsState(targetValue = searchBarBackgroundAlpha)
     Column(modifier = Modifier.fillMaxWidth()) {
         SearchBarWithFilterChips(
@@ -330,15 +335,35 @@ private fun SearchBarWithFilterChips(
         }
     }
     val filterChipGroupScrollState = rememberScrollState()
+
     Column(
         modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Text(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            text = "Search",
-            fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.h5
-        )
+        Row(
+            modifier = modifier,
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            Icon(
+                imageVector = Icons.Rounded.AccountCircle,
+                contentDescription = null,
+                modifier = Modifier.padding(horizontal = 16.dp)
+            )
+            Text(
+                text = "Search",
+                fontWeight = FontWeight.Bold,
+                style = MaterialTheme.typography.h5,
+                modifier = Modifier.padding(end = 250.dp)
+            )
+            IconButton(onClick = {}) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_photo_camera),
+                    contentDescription = "Camera",
+                    modifier = Modifier.padding(horizontal = 16.dp),
+
+                )
+            }
+        }
         OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
@@ -352,7 +377,7 @@ private fun SearchBarWithFilterChips(
             trailingIcon = textFieldTrailingIcon,
             placeholder = {
                 Text(
-                    text = "Artists, songs, or podcasts", fontWeight = FontWeight.SemiBold
+                    text = "What do you want to listen to?", fontWeight = FontWeight.SemiBold
                 )
             },
             singleLine = true,

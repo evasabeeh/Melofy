@@ -55,40 +55,59 @@ val defaultPremiumPlans = listOf(
         id = "premium_mini",
         name = "Mini",
         highlights = listOf(
-            "1 day and 1 week plans",
-            "Ad-free music on mobile",
-            "Download 30 songs on 1 mobile device",
-            "Mobile only plan"
+            "1 mobile-only Premium account",
+            "Excludes listening insights(Your Sound Capsule)",
+            "Offline listening of up to 30 songs on 1 device",
+            "Basic audio quality"
         ),
-        termsAndConditions = "Prices vary according to duration of plan. Terms and conditions apply.",
+        termsAndConditions = "Terms and conditions apply.",
         pricingInformation = PricingInformation(
             associatedCardId = "premium_mini",
-            cost = "From $7",
+            cost = "Rs. 7",
             term = "For 1 day"
         ),
         colorInformation = PremiumPlanInformation.ColorInformation(
-            gradientStartColor = Color(0xFF4F99F4),
-            gradientEndColor = Color(0xFF2F4ABC)
+            gradientStartColor = Color(0xFF2B373F),
+            gradientEndColor = Color(0xFF2B373F)
+        )
+    ),
+    PremiumPlanInformation(
+        id = "premium_student",
+        name = "Premium Student",
+        highlights = listOf(
+            "1 verified Premium account",
+            "Discount for eligible students",
+            "Cancel anytime",
+            "Subscribe for one-time payment"
+        ),
+        termsAndConditions = "Rs. 59 for 2 months, then Rs. 59 per month after. Offer available only to students at an accredited higher education institution and if you haven't tried Premium before. Terms and conditions apply.",
+        pricingInformation = PricingInformation(
+            associatedCardId = "premium_family",
+            cost = "Rs. 59",
+            term = "For 2 months"
+        ),
+        colorInformation = PremiumPlanInformation.ColorInformation(
+            gradientStartColor = Color(0xFF2B373F),
+            gradientEndColor = Color(0xFF2B373F)
         )
     ),
     PremiumPlanInformation(
         id = "premium_individual",
         name = "Premium Individual",
         highlights = listOf(
-            "Ad-free music listening",
-            "Download to listen offline",
-            "Debit and credit cards accepted"
+            "1 Premium account",
+            "Cancel anytime",
+            "Subscribe for one-time payment"
         ),
-        termsAndConditions = "Offer only for users who are new to Premium. Terms and conditions apply.",
+        termsAndConditions = "Terms and conditions apply.",
         pricingInformation = PricingInformation(
             associatedCardId = "premium_individual",
-            cost = "Free",
-            term = "For 1 month"
+            cost = "Rs. 119",
+            term = "For 2 months"
         ),
         colorInformation = PremiumPlanInformation.ColorInformation(
-            gradientStartColor = Color(0xFF045746),
-            gradientEndColor = Color(0xFF16A96A)
-
+            gradientStartColor = Color(0xFF2B373F),
+            gradientEndColor = Color(0xFF2B373F)
         )
     ),
     PremiumPlanInformation(
@@ -109,8 +128,8 @@ val defaultPremiumPlans = listOf(
             term = "For 1 month"
         ),
         colorInformation = PremiumPlanInformation.ColorInformation(
-            gradientStartColor = Color(0xff5992C2),
-            gradientEndColor = Color(0xff3F3F76)
+            gradientStartColor = Color(0xFF36454F),
+            gradientEndColor = Color(0xFF36454F)
         )
     ),
     PremiumPlanInformation(
@@ -129,26 +148,8 @@ val defaultPremiumPlans = listOf(
             term = "For 1 month"
         ),
         colorInformation = PremiumPlanInformation.ColorInformation(
-            gradientStartColor = Color(0xFF213265),
-            gradientEndColor = Color(0xFF972A8E)
-        )
-    ),
-    PremiumPlanInformation(
-        id = "premium_student",
-        name = "Premium Student",
-        highlights = listOf(
-            "Add-free music listening",
-            "Download to listen offline",
-        ),
-        termsAndConditions = "Offer available only to students at an accredited higher education institution. Terms and conditions apply.",
-        pricingInformation = PricingInformation(
-            associatedCardId = "premium_family",
-            cost = "Free",
-            term = "For 1 month"
-        ),
-        colorInformation = PremiumPlanInformation.ColorInformation(
-            gradientStartColor = Color(0xFFF49A24),
-            gradientEndColor = Color(0xFFB27049)
+            gradientStartColor = Color(0xFF36454F),
+            gradientEndColor = Color(0xFF36454F)
         )
     )
 )

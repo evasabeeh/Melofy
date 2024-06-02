@@ -10,17 +10,17 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Notifications
+import androidx.compose.material.icons.outlined.Refresh
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.musify.R
 import com.example.musify.domain.HomeFeedCarousel
 import com.example.musify.domain.HomeFeedCarouselCardInfo
 import com.example.musify.domain.HomeFeedFilters
@@ -60,7 +60,10 @@ fun HomeScreen(
             )
         }
     }
-    Box {
+    val gradient = Brush.verticalGradient(listOf(Color.Black, Color.DarkGray, Color.Gray))
+    Box(
+        Modifier.background(gradient)
+    ) {
         LazyColumn(
             state = lazyColumState,
             modifier = Modifier.fillMaxSize(),
@@ -131,7 +134,6 @@ fun HomeScreen(
     }
 }
 
-
 @ExperimentalMaterialApi
 @Composable
 private fun CarouselLazyRow(
@@ -163,9 +165,9 @@ private fun HeaderRow(modifier: Modifier = Modifier, timeBasedGreeting: String) 
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            text = timeBasedGreeting,
+            text = "$timeBasedGreeting, Eva!",
             fontWeight = FontWeight.Bold,
-            style = MaterialTheme.typography.h5
+            style = MaterialTheme.typography.h5,
         )
 
         Row {
@@ -177,7 +179,7 @@ private fun HeaderRow(modifier: Modifier = Modifier, timeBasedGreeting: String) 
             }
             IconButton(onClick = {}) {
                 Icon(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_listening_history),
+                    imageVector = Icons.Outlined.Refresh,
                     contentDescription = null
                 )
             }
