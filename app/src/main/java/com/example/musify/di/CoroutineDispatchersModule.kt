@@ -17,7 +17,6 @@ annotation class IODispatcher
 @Qualifier
 annotation class DefaultDispatcher
 
-
 @Module
 @InstallIn(ActivityRetainedComponent::class)
 object CoroutineDispatchersModule {

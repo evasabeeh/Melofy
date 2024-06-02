@@ -22,7 +22,6 @@ import com.example.musify.domain.defaultPremiumPlans
 import com.example.musify.ui.components.MusifyBottomNavigationConstants
 import com.example.musify.ui.components.MusifyMiniPlayerConstants
 
-
 @Composable
 fun GetPremiumScreen(
     availablePlans: List<PremiumPlanInformation> = defaultPremiumPlans,

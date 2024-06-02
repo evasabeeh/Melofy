@@ -1,6 +1,18 @@
 package com.example.musify.data.remote.musicservice
 
-import com.example.musify.data.remote.response.*
+import com.example.musify.data.remote.response.AlbumResponse
+import com.example.musify.data.remote.response.AlbumsMetadataResponse
+import com.example.musify.data.remote.response.ArtistResponse
+import com.example.musify.data.remote.response.BrowseCategoriesResponse
+import com.example.musify.data.remote.response.EpisodeResponse
+import com.example.musify.data.remote.response.EpisodesWithPreviewUrlResponse
+import com.example.musify.data.remote.response.FeaturedPlaylistsResponse
+import com.example.musify.data.remote.response.NewReleasesResponse
+import com.example.musify.data.remote.response.PlaylistItemsResponse
+import com.example.musify.data.remote.response.PlaylistsForSpecificCategoryResponse
+import com.example.musify.data.remote.response.SearchResultsResponse
+import com.example.musify.data.remote.response.ShowResponse
+import com.example.musify.data.remote.response.TracksWithAlbumMetadataListResponse
 import com.example.musify.data.remote.token.BearerToken
 import com.example.musify.domain.Genre
 import retrofit2.http.GET

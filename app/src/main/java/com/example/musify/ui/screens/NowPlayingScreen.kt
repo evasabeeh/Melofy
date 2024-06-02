@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.Flow
 
 // collecting the flow within the composable scopes the collector to the composable.
 // This ensures that the collection of flow is stopped as soon this composable
-// is removed from composition. Therefore, this composables use parameters of type
+// is removed from composition. Therefore, this composable use parameters of type
 // Flow.
 @Composable
 fun NowPlayingScreen(
