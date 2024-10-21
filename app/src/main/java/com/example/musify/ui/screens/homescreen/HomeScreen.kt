@@ -54,7 +54,7 @@ fun HomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             DefaultMusifyErrorMessage(
-                title = "Oops! Something doesn't look right",
+                title = "Oops! Something doesn't look right.",
                 subtitle = "Please check the internet connection",
                 onRetryButtonClicked = onErrorRetryButtonClick
             )
