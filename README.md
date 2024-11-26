@@ -1,5 +1,5 @@
 <br/>
-<p align="center">g
+<p align="center">
   <img src="Screenshot (244).png" alt="View" width="250" height="500"/> 
   <h3 align="center">Melofy - Spotify inspired app</h3>
 
