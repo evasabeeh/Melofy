@@ -1,0 +1,134 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace "com.example.musify"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.musify"
+        minSdk 23
+        targetSdk 33
+        versionCode 1
+        versionName "1.2.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+
+        // Load data from local.properties
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+        buildConfigField "String", "SPOTIFY_CLIENT_ID", "\"${properties.getProperty("SPOTIFY_CLIENT_ID")}\""
+        buildConfigField "String", "SPOTIFY_CLIENT_SECRET", "\"${properties.getProperty("SPOTIFY_CLIENT_SECRET")}\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        // To enable the use of java.time API with minSdk < 26
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        compose true
+        buildConfig true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.3'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+}
+
+dependencies {
+    // Core
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.8.1'
+
+    // java.time support for api < Android O
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+
+    // Compose
+    def composeBom = platform('androidx.compose:compose-bom:2024.05.00')
+    implementation composeBom
+    androidTestImplementation composeBom
+
+    implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.material:material"
+    implementation "androidx.compose.ui:ui-tooling-preview"
+    debugImplementation "androidx.compose.ui:ui-tooling"
+    debugImplementation "androidx.compose.ui:ui-test-manifest"
+    implementation 'androidx.activity:activity-compose:1.9.0'
+    implementation "androidx.navigation:navigation-compose:2.7.7"
+
+    // Accompanist
+    implementation "com.google.accompanist:accompanist-placeholder-material:0.13.0"
+
+    // Image handling
+    implementation "io.coil-kt:coil-compose:2.4.0"
+
+    // Lottie compose
+    implementation "com.airbnb.android:lottie-compose:6.4.0"
+
+    // Testing
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // No inspection GradleDependency
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    testImplementation "org.robolectric:robolectric:4.12.1"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0"
+    testImplementation 'org.mockito:mockito-core:3.9.0'
+    testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
+
+    // Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.11.0'
+    implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+
+    // Jackson support for kotlin types
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.13.2'
+
+    // Hilt
+    implementation "com.google.dagger:hilt-android:2.50"
+    implementation 'androidx.hilt:hilt-navigation-compose:1.2.0'
+    kapt "com.google.dagger:hilt-compiler:2.50"
+
+    // Exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.19.1'
+
+    // for PlayerNotificationManager
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.19.1'
+
+    // Paging
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"            //3.1.1
+    implementation "androidx.paging:paging-compose:1.0.0-alpha15"        //1.0.0-alpha15
+
+    // Color extraction
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+
+    // for Text composable becomes available in compose
+    implementation 'com.google.android.material:material:1.12.0'
+}
