@@ -1,6 +1,6 @@
 <br/>
 <p align="center">g
-  <img src="" alt="View" width="500" height="250"/> 
+  <img src="Screenshot (244).png" alt="View" width="250" height="500"/> 
   <h3 align="center">Melofy - Spotify inspired app</h3>
 
   <p align="center">
